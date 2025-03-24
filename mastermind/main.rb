@@ -14,3 +14,6 @@
 require_relative 'libs/game'
 require_relative 'libs/modules/colors'
 require_relative 'libs/computer'
+
+new_game = Game.new
+new_game.computer_is_codemaker
