@@ -12,8 +12,6 @@
 # found in computer.
 # then if there are matches print if colors right or locations right.
 require_relative 'libs/game'
-require_relative 'libs/modules/colors'
-require_relative 'libs/computer'
 
-new_game = Game.new
-new_game.computer_is_codemaker
+newgame = Game.new
+newgame.play_game

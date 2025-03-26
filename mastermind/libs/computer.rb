@@ -1,13 +1,11 @@
 require_relative 'modules/colors'
-
-# Store computer information and actions
+# Class to contain Computer logic
 class Computer
   include Colors
 
-  attr_reader :round_colors
+  attr_reader :color_code
 
-  def assign_colors_for_round
-    @round_colors = []
-    @round_colors.push(list_of_colors.shuffle.pop) until round_colors.size == 4
+  def create_new_color_code
+    create_color_code
   end
 end

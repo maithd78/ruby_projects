@@ -1,3 +1,5 @@
-# Store player information and player actions
-# class Player
-# end
+require_relative 'modules/colors'
+# Class to contain Player logic
+class Player
+  include Colors
+end
