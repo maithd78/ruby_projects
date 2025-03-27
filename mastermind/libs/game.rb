@@ -12,6 +12,12 @@ class Game
     @computer = Computer.new
   end
 
+  def who_will_be_codemaker
+    puts 'get who will be codemaker[me/codemaker]'
+    @new_codemaker = gets.chomp.downcase
+    @player.create_code_for_computer if @new_codemaker == 'me'
+  end
+
   def game_over_screen
     puts 'you cracked the code'
     puts 'play again[y/n]'
