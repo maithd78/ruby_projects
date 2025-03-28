@@ -3,14 +3,14 @@ require_relative 'modules/colors'
 class Computer
   include Colors
 
-  attr_reader :color_code
+  attr_reader :color_code, :solutions, :colors
 
-  def create_new_color_code
-    create_color_code
+  def initialize
+    code_solutions
   end
 
-  def guess_player_colorcode
-    @guesses = []
-    @guesses.size.push(list_of_colors.sample) until @guesses.size == 4
+  def code_solutions
+    @solutions = (1111..6666).to_a
+    @solutions.delete_if { |val| val.digits.any? { |e| e >= 7 || e.zero? } }
   end
 end
