@@ -13,5 +13,23 @@
 # then if there are matches print if colors right or locations right.
 require_relative 'libs/game'
 
-newgame = Game.new
-newgame.play_game
+# computer = Computer.new
+# computer.next_possible_guess
+# player = Player.new
+# player.player_create_color_code
+# p player.player_code_digits
+
+# game = Game.new
+# game.play_game
+
+computer = Computer.new
+
+computer.play_game('1122', '1236')
+
+# round = 1
+
+# until round == 10 || computer.code_cracked == true
+#   puts "round no #{round}"
+#   # computer.play_guess(round)
+#   round += 1
+# end
