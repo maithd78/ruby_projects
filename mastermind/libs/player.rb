@@ -3,9 +3,9 @@ require_relative 'modules/colors'
 class Player
   include Colors
 
-  attr_reader :player_code_digits
+  attr_reader :player_code_digits, :player_code
 
-  def player_create_color_code
+  def player_input
     @player_code = []
     puts "available colors:\n#{list_of_colors.join(', ')}"
     until @player_code.size == 4
@@ -13,7 +13,7 @@ class Player
       puts 'invalid color, Try again' until list_of_colors.include?(@current_color = gets.chomp.downcase)
       @player_code.push(@current_color)
     end
-    convert_to_digits
+    p @player_code
   end
 
   def convert_to_digits
@@ -25,5 +25,10 @@ class Player
       @player_code.each { |e| @player_code_digits.push(@colors.values_at(e)) }
     end
     @player_code_digits = @player_code_digits.join.to_i
+  end
+
+  def player_create_color_code
+    player_input
+    convert_to_digits
   end
 end

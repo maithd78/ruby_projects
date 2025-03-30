@@ -22,9 +22,9 @@ require_relative 'libs/game'
 # game = Game.new
 # game.play_game
 
-computer = Computer.new
+# computer = Computer.new
 
-computer.play_game('1122', '1236')
+# computer.play_game('1122', '1236')
 
 # round = 1
 
@@ -33,3 +33,6 @@ computer.play_game('1122', '1236')
 #   # computer.play_guess(round)
 #   round += 1
 # end
+
+game = Game.new
+game.play_game
