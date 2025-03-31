@@ -27,6 +27,5 @@ module Hints
     @hints = { B: 0, W: 0 }
     black_pegs
     white_pegs
-    puts "Black: #{@hints[:B]}, White: #{@hints[:W]}"
   end
 end

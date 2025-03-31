@@ -3,7 +3,7 @@ require_relative 'modules/colors'
 class Player
   include Colors
 
-  attr_reader :player_code_digits, :player_code
+  attr_reader :player_code_digits, :player_code, :secret_code
 
   def player_input
     @player_code = []
@@ -30,5 +30,6 @@ class Player
   def player_create_color_code
     player_input
     convert_to_digits
+    @secret_code = @player_code_digits.to_s.chars.map(&:to_i)
   end
 end

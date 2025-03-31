@@ -13,14 +13,27 @@ class Round
     @game_over = false
   end
 
-  def code_cracked?(code_braker, secret_code)
-    code_braker == secret_code
+  def code_cracked?(code_breaker, secret_code)
+    code_breaker == secret_code
   end
 
-  def play_round(code_braker, secret_code)
+  def play_round_computer(computer, secret_code)
     puts "ROUND #{@round_no}"
-    code_braker.player_input
-    round_end_hints(code_braker.player_code, secret_code)
-    @game_over = true if code_cracked?(code_braker.player_code, secret_code)
+    @guess = computer.next_possible_guess(@round_no)
+    p @guess
+
+    round_end_hints(@guess, secret_code)
+    puts "Black: #{@hints[:B]}, White: #{@hints[:W]}"
+    @game_over = true if code_cracked?(@guess, secret_code)
+
+    computer.possible_solutions(@guess, @hints) unless @game_over == true
+  end
+
+  def play_round(code_breaker, secret_code)
+    puts "ROUND #{@round_no}"
+    code_breaker.player_input
+    round_end_hints(code_breaker.player_code, secret_code)
+    puts "Black: #{@hints[:B]}, White: #{@hints[:W]}"
+    @game_over = true if code_cracked?(code_breaker.player_code, secret_code)
   end
 end
