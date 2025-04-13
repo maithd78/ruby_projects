@@ -12,6 +12,12 @@ class Computer
     code_solutions
   end
 
+  def convert_to_colors(guess)
+    guess.each_with_index do |guess, index|
+      guess = colors[]
+    end
+  end
+
   def code_solutions
     @solutions = (1111..6666).to_a
     @solutions.delete_if { |val| val.digits.any? { |e| e >= 7 || e.zero? } }
@@ -23,17 +29,8 @@ class Computer
       round_end_hints(arr, guess)
       @hints != current_guess_hints
     end
-    p @remaining_solutions.size
+    @remaining_solutions.size
   end
-
-  # def minimax(hints)
-  #   @value_of_solutions = Array.new(@remaining_solutions.size)
-  #   if (hints[:B]).zero? && (hints[:W]).zero?
-  #     @value_of_solutions.each_with_index do |val, index|
-  #       val = 1 if @remaining_solutions[index]
-  #     end
-  #   end
-  # end
 
   def next_possible_guess(current_round)
     if current_round == 1

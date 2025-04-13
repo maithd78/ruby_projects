@@ -17,12 +17,12 @@ class Player
   end
 
   def convert_to_digits
-    @colors = list_of_colors.to_h { |item| [item, list_of_colors.index(item) + 1] }
+    # @colors = list_of_colors.to_h { |item| [item, list_of_colors.index(item) + 1] }
     @player_code_digits = []
     if @player_code.empty?
-      @color_code.each { |e| @player_code_digits.push(@colors.values_at(e)) }
+      @color_code.each { |e| @player_code_digits.push(colors.values_at(e)) }
     else
-      @player_code.each { |e| @player_code_digits.push(@colors.values_at(e)) }
+      @player_code.each { |e| @player_code_digits.push(colors.values_at(e)) }
     end
     @player_code_digits = @player_code_digits.join.to_i
   end

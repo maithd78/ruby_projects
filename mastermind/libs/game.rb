@@ -11,6 +11,9 @@ class Game
     @player = Player.new
     @computer = Computer.new
     @code_maker = nil
+
+    # @computer.convert_to_colors
+
     code_maker?
   end
 

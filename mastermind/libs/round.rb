@@ -20,7 +20,7 @@ class Round
   def play_round_computer(computer, secret_code)
     puts "ROUND #{@round_no}"
     @guess = computer.next_possible_guess(@round_no)
-    p @guess
+    # p @guess
 
     round_end_hints(@guess, secret_code)
     puts "Black: #{@hints[:B]}, White: #{@hints[:W]}"

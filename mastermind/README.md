@@ -5,7 +5,9 @@ Choose to either guess a randomly generated code or write a your own secret colo
 
 ### How the computer guesses your secret code
 
-The computer will start by eliminating the first two colors available in the list of colors and then systematically elimanate any color codes that do not return the same feedback as the first guess. after it will choose the next color_code that is most likely to return the secret code.(currently not implemented; just picks at random).
+currently implements the Swaszek (1999-2000) method. by choosing a random possibility from the remaining possibilities.
+
+The computer will start by eliminating the first two colors available in the list of colors and then systematically elimanate any color codes that do not return the same feedback as the first guess.
 
 ### TO-DO 
 
