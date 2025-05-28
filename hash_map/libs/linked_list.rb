@@ -9,7 +9,7 @@ class LinkedList
     @tail = nil
   end
 
-  def append(key, value)
+  def append(key, value = nil)
     if @head.nil?
       @head = Node.new(key, value)
       @tail = @head
