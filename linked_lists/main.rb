@@ -9,4 +9,5 @@ list.append('hamster')
 list.append('snake')
 list.append('turtle')
 
+p list
 puts list
