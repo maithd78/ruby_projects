@@ -2,5 +2,11 @@
 
 require_relative 'libs/cipher'
 
-encode = Cipher.new('Hello World!', 5)
-encode.shift_chars
+p 'Enter message to encrypt'
+message = gets.chomp
+
+p 'Enter shift'
+shift = gets.chomp.to_i
+
+my_message = Cipher.new(message, shift)
+p my_message.encrypt

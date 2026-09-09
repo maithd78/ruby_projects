@@ -3,31 +3,26 @@
 # Receives message from main and returns ciphered message
 class Cipher
   def initialize(message, shift)
-    @message = message.chars
-    @shift = get_shift(shift)
-    @result = []
+    @message = message
+    @shift = shift < 26 ? shift : get_shift(shift)
   end
 
   def get_shift(shift)
-    return shift if shift <= 26
-
-    (shift % 26)
+    shift % 26
   end
 
   def get_upcase(char, shift)
+    # % to wrap around the alphabet and add 65 to get ascii.
     (((char.ord - 65 + shift) % 26) + 65).chr
   end
 
   def get_downcase(char, shift)
+    # % to wrap around the alphabet and add 97 to get ascii.
     (((char.ord - 97 + shift) % 26) + 97).chr
   end
 
-  def print_encode(result = @result)
-    p result.join
-  end
-
-  def shift_chars(message = @message, shift = @shift, result = @result)
-    message.each do |char|
+  def shift_chars(message = @message, shift = @shift, result = [])
+    message.each_char do |char|
       result << if char.ord.between?(97, 122)
                   get_downcase(char, shift)
                 elsif char.ord.between?(65, 90)
@@ -36,6 +31,10 @@ class Cipher
                   char
                 end
     end
-    print_encode
+    result
+  end
+
+  def encrypt
+    @message = shift_chars.join
   end
 end
