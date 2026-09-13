@@ -7,18 +7,18 @@ class Display
   end
 
   def draw
-    puts "\n #{@board[0]} | #{@board[1]} | #{@board[2]} \n-----------"
-    puts " #{@board[3]} | #{@board[4]} | #{@board[5]} \n-----------"
+    puts "\n #{@board[0]} | #{@board[1]} | #{@board[2]} \n---+---+---"
+    puts " #{@board[3]} | #{@board[4]} | #{@board[5]} \n---+---+---"
     puts " #{@board[6]} | #{@board[7]} | #{@board[8]} \n "
   end
 
-  def assign_o(num)
-    @board[num] = 'O'
+  def assign(num, mark)
+    @board[num] = mark
     draw
   end
 
-  def assign_x(num)
-    @board[num] = 'X'
-    draw
+  def valid_moves?
+    # checks if there are any unfilled spots on the board
+    @board.any?(' ')
   end
 end
